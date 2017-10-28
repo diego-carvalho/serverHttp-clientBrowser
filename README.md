@@ -12,7 +12,7 @@
     
         To use in the terminal with browser.py or browser from operational system
         ```bash
-        $ python server.py mod-brower 8080
+        $ bash python server.py mod-brower 8080
         ```
         To use in other forms
         ```bash
