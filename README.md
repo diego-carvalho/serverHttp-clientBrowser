@@ -10,6 +10,11 @@
 # How to use
     - server.py
     
+        
+        ```bash
+        $ bash install.sh
+        ```
+    
         To use in the terminal with browser.py or browser from operational system
         ```bash
         $ bash python server.py mod-brower 8080
