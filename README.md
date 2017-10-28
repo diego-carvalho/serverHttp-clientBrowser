@@ -10,25 +10,15 @@
 # How to use
     - server.py
     
-        
-        ```bash
-        $ bash install.sh
-        ```
-    
         To use in the terminal with browser.py or browser from operational system
-        ```bash
         $ bash python server.py mod-brower 8080
-        ```
+        
         To use in other forms
-        ```bash
         $ python server.py path_file 8080
-        ```
 
     - browser.py
         To use in terminal
-        ```bash
         $ python browser.py 0.0.0.0/path_file port
-        ```
 
 # Responses
     - 0.0.0.0/test/
