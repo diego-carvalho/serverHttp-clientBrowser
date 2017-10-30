@@ -4,6 +4,7 @@
 import socket
 import threading
 import sys
+import os
 
 if len(sys.argv) < 3:
     print 'comando de execução faltando parametro, exemplo: python server.py index.html'
@@ -42,6 +43,8 @@ def handle_client_connection(c):
             f = f[1:]
 
     if f[len(f) - 1] == '/':
+        if not os.path.isdir(f):
+            f = '/' + f
         if file_r != 'mod-browser':
             files = os.listdir(f)
             files_s = ""
@@ -56,7 +59,9 @@ def handle_client_connection(c):
             files_s = ""
             for i in files:
                 path = os.path.realpath(f)
-                files_s +="<li>"+ i +"</li>"
+                path = path.split('serverHttp-clientBrowser')[1]
+                path = path + '/' + i
+                files_s +="<a href="+path+"><li>"+ i +"</li></a>"
             response = """
                 <!DOCTYPE html>
                 <html lang='pt-br'>
@@ -93,7 +98,10 @@ def handle_client_connection(c):
             c.close()
             return
             
-    print response
+    if f != 'favicon.ico':
+        print response
+    else:
+        print 'send favicon icon'
     c.send('HTTP/1.0 200 OK\n')
     c.send('Content-Type: text/html\n')
     c.send('\n')
